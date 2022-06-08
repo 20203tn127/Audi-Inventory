@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+
+    <package name="struts2"  extends="struts-default,json-default">
+
+        <interceptors>
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="json"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <action name="index">
+            <result>/index.jsp</result>
+        </action>
+
+        <action name="findAll" class="ActionController.CarAction" method="consultar">
+                 <result name="success" type="json"/>
+        </action>
+
+        <action name="findAllCategories" class="ActionController.CategoryAction" method="consultar">
+            <result name="success" type="json"/>
+        </action>
+
+        <action name="findAllModels" class="ActionController.ModelsAction" method="consultar">
+            <result name="success" type="json"/>
+        </action>
+
+        <action name="registerCar" class="ActionController.CarAction" method="register">
+            <result name="success" type="json"/>
+        </action>
+
+
+
+
+
+<!--        <action name="register" class="controller.category.CategoryAction" method="register">-->
+<!--            <result name="input" type="json"/>-->
+<!--            <result name="success" type="json"/>-->
+<!--        </action>-->
+<!--        <action name="findAll" class="controller.category.CategoryAction" method="findAll">-->
+<!--            <result name="success" type="json"/>-->
+<!--        </action>-->
+<!--        <action name="update" class="controller.category.CategoryAction" method="update">-->
+<!--            <result name="success" type="json"/>-->
+<!--        </action>-->
+<!--        <action name="delete" class="controller.category.CategoryAction" method="delete">-->
+<!--            <result name="success" type="json"/>-->
+<!--        </action>-->
+
+<!--        <action name="registerProduct" class="controller.product.ProductAction" method="register">-->
+<!--            <result name="input" type="json"/>-->
+<!--            <result name="success" type="json"/>-->
+<!--        </action>-->
+<!--        <action name="findAllProduct" class="controller.product.ProductAction" method="findAll">-->
+<!--            <result name="success" type="json"/>-->
+<!--        </action>-->
+<!--        <action name="updateProduct" class="controller.product.ProductAction" method="update">-->
+<!--            <result name="success" type="json"/>-->
+<!--        </action>-->
+<!--        <action name="deleteProduct" class="controller.product.ProductAction" method="delete">-->
+<!--            <result name="success" type="json"/>-->
+<!--        </action>-->
+    </package>
+
+</struts>
